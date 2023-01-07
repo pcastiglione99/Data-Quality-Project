@@ -1,0 +1,52 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{graphicx,geometry,hyperref,float}
+% Justify Paragrapher
+\newcommand{\justified}
+{
+	\tolerance=1
+	\emergencystretch=\maxdimen
+	\hyphenpenalty=10000
+	\hbadness=10000
+}
+
+
+\graphicspath{ {./images/} }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+	\vspace{-2cm}
+	\textbf{Data And Information Quality Project}\\
+}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\justified
+
+\begin{itemize}
+	\item\textbf{PROJECT ID}: 21
+	\item\textbf{PROJECT NUMBER}: 1
+	\item\textbf{ASSIGNED DATASET}: USERS
+	\item\textbf{STUDENT}: PASQUALE CASTIGLIONE 10657816
+	\item\textbf{ASSIGNED TASK}: CLUSTERING
+\end{itemize}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{SETUP CHOICES}
+\subsection{Chosen ML algorithms}
+\subsection{Chosen ML performance evaluation metrics}
+\subsection{Imputation techniques selected}
+\section{PIPELINE IMPLEMENTATION}
+\subsection{Description of the steps you performed}
+\section{RESULTS}
+\subsection{Description of the main results obtained}
+\subsection{ML performance comparison between the imputation/outlier detection techniques you have implemented}
+
+\end{document}
