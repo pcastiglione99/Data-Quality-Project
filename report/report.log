@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.8)  7 JAN 2023 19:00
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.8)  7 JAN 2023 19:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -274,17 +274,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
- [2] [3] (./report.aux)
+ [2] [3] [4] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 593F126D37552C906FDB26F8910099BA;2106.
+(rerunfilecheck)             Checksum: 846710982AFF20EFBAACFD05BF4D7662;2796.
  ) 
 Here is how much of TeX's memory you used:
- 8481 strings out of 476156
- 134747 string characters out of 5814963
- 440684 words of memory out of 5000000
- 29171 multiletter control sequences out of 15000+600000
+ 8482 strings out of 476156
+ 134763 string characters out of 5814963
+ 450401 words of memory out of 5000000
+ 29172 multiletter control sequences out of 15000+600000
  472419 words of font info for 46 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 60i,5n,64p,618b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,64p,619b,349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.xdv (3 pages, 19420 bytes).
+Output written on report.xdv (4 pages, 32392 bytes).

@@ -47,6 +47,54 @@
 \subsection{Description of the steps you performed}
 \section{RESULTS}
 \subsection{Description of the main results obtained}
+\subsubsection{Simple Imputation}
+\begin{table}[h]
+\begin{tabular}{ccccc}
+              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
+\textbf{50\%} & 0.92        & 0.91        & 0.9         & 1.00        \\
+\textbf{60\%} & 0.92        & 0.93        & 0.93        & 1.00        \\
+\textbf{70\%} & 0.94        & 0.97        & 0.93        & 0.99        \\
+\textbf{80\%} & 0.96        & 0.95        & 0.97        & 1.00        \\
+\textbf{90\%} & 0.97        & 0.99        & 0.99        & 1.00       
+\end{tabular}
+\end{table}
+
+\subsubsection{Simple Imputation Shuffled}
+\begin{table}[h]
+\begin{tabular}{ccccc}
+              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
+\textbf{50\%} & 0.69        & 0.81        & 0.67        & 0.61        \\
+\textbf{60\%} & 0.71        & 0.83        & 0.76        & 0.69        \\
+\textbf{70\%} & 0.83        & 0.90        & 0.81        & 0.78        \\
+\textbf{80\%} & 0.89        & 0.93        & 0.87        & 0.83        \\
+\textbf{90\%} & 0.91        & 0.98        & 0.94        & 0.91       
+\end{tabular}
+\end{table}
+
+\subsubsection{KNN Imputation}
+\begin{table}[h]
+\begin{tabular}{ccccc}
+              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
+\textbf{50\%} & 0.76        & 0.90        & 0.79        & 0.80        \\
+\textbf{60\%} & 0.84        & 0.92        & 0.85        & 0.87        \\
+\textbf{70\%} & 0.88        & 0.96        & 0.92        & 0.91        \\
+\textbf{80\%} & 0.94        & 0.97        & 0.95        & 0.94        \\
+\textbf{90\%} & 0.97        & 1.00        & 0.99        & 0.98       
+\end{tabular}
+\end{table}
+
+\subsubsection{KNN Imputation Shuffled}
+\begin{table}[h]
+\begin{tabular}{ccccc}
+              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
+\textbf{50\%} & 0.79        & 0.91        & 0.78        & 0.78        \\
+\textbf{60\%} & 0.83        & 0.91        & 0.86        & 0.83        \\
+\textbf{70\%} & 0.88        & 0.94        & 0.91        & 0.91        \\
+\textbf{80\%} & 0.96        & 0.96        & 0.94        & 0.95        \\
+\textbf{90\%} & 0.98        & 0.99        & 0.99        & 1.00       
+\end{tabular}
+\end{table}
+
 \subsection{ML performance comparison between the imputation/outlier detection techniques you have implemented}
 
 \end{document}
