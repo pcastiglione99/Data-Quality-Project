@@ -43,12 +43,21 @@
 \subsection{Chosen ML algorithms}
 \subsection{Chosen ML performance evaluation metrics}
 \subsection{Imputation techniques selected}
+\subsubsection{Simple Imputation}
+The simple imputation was performed by propagating valid data to the missing value.
+\subsubsection{Advanced Imputation}
+The advanced technique used to impute missing value was \emph{KNN}. In order to apply this method, data were firstly encoded as one-hot numeric arrays.
+This method turned out to be pretty robust to shuffling.
 \section{PIPELINE IMPLEMENTATION}
 \subsection{Description of the steps you performed}
+\newpage
 \section{RESULTS}
 \subsection{Description of the main results obtained}
+
 \subsubsection{Simple Imputation}
+
 \begin{table}[h]
+\begin{minipage}{.45\textwidth}\centering
 \begin{tabular}{ccccc}
               & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
 \textbf{50\%} & 0.92        & 0.91        & 0.9         & 1.00        \\
@@ -57,10 +66,10 @@
 \textbf{80\%} & 0.96        & 0.95        & 0.97        & 1.00        \\
 \textbf{90\%} & 0.97        & 0.99        & 0.99        & 1.00       
 \end{tabular}
-\end{table}
-
-\subsubsection{Simple Imputation Shuffled}
-\begin{table}[h]
+\caption{Simple Imputation}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}\centering
 \begin{tabular}{ccccc}
               & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
 \textbf{50\%} & 0.69        & 0.81        & 0.67        & 0.61        \\
@@ -69,10 +78,13 @@
 \textbf{80\%} & 0.89        & 0.93        & 0.87        & 0.83        \\
 \textbf{90\%} & 0.91        & 0.98        & 0.94        & 0.91       
 \end{tabular}
+\caption{Simple Imputation Shuffled}
+\end{minipage}
 \end{table}
 
-\subsubsection{KNN Imputation}
+\subsubsection{Advanced Imputation}
 \begin{table}[h]
+\begin{minipage}{.45\textwidth}\centering
 \begin{tabular}{ccccc}
               & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
 \textbf{50\%} & 0.76        & 0.90        & 0.79        & 0.80        \\
@@ -81,10 +93,10 @@
 \textbf{80\%} & 0.94        & 0.97        & 0.95        & 0.94        \\
 \textbf{90\%} & 0.97        & 1.00        & 0.99        & 0.98       
 \end{tabular}
-\end{table}
-
-\subsubsection{KNN Imputation Shuffled}
-\begin{table}[h]
+\caption{KNN Imputation}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}\centering
 \begin{tabular}{ccccc}
               & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
 \textbf{50\%} & 0.79        & 0.91        & 0.78        & 0.78        \\
@@ -93,6 +105,8 @@
 \textbf{80\%} & 0.96        & 0.96        & 0.94        & 0.95        \\
 \textbf{90\%} & 0.98        & 0.99        & 0.99        & 1.00       
 \end{tabular}
+\caption{KNN Imputation Shuffled}
+\end{minipage}
 \end{table}
 
 \subsection{ML performance comparison between the imputation/outlier detection techniques you have implemented}
