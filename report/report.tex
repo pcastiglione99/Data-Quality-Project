@@ -15,16 +15,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{
-	\vspace{-2cm}
-	\textbf{Data And Information Quality Project}\\
+	\vspace{4cm}
+	\textbf{Data And Information Quality Project Report}\\
 }
 \author{}
 \date{}
 
 \begin{document}
 \maketitle
+\vfill
 \justified
-
 \begin{itemize}
 	\item\textbf{PROJECT ID}: 21
 	\item\textbf{PROJECT NUMBER}: 1
@@ -39,22 +39,38 @@
 
 \newpage
 
+
+
 \section{SETUP CHOICES}
-\subsection{Chosen ML algorithms}
+\subsection{Clustering}
+Clustering was performed used two different methods: K-Modes and K-Means.
+\begin{itemize}
+\item\textbf{K-Modes}
+Because of the categorical nature of the data, \emph{K-Modes} was used. In order to select the number of clusters, \emph{elbow} method analysis was performed.
+\item\textbf{K-Means}
+The second clustering techniques used was K-Means using Jaccard as distance measure.
+\end{itemize}
 \subsection{Chosen ML performance evaluation metrics}
-\subsection{Imputation techniques selected}
+\subsection{Imputation}
 \subsubsection{Simple Imputation}
-The simple imputation was performed by propagating valid data to the missing value.
+Simple imputation was performed by propagating valid values to the cells with missing values using \emph{fillna} method from \emph{Pandas}. Firstly values were propagated forward then, to avoid null values in the first row, values were propagated backward also. This method showed very good result with the original data, but applying it to a shuffle version of the dataset showed worse results.  
 \subsubsection{Advanced Imputation}
-The advanced technique used to impute missing value was \emph{KNN}. In order to apply this method, data were firstly encoded as one-hot numeric arrays.
-This method turned out to be pretty robust to shuffling.
+\emph{K-Nearest Neighbors} was used as the advanced technique used to impute missing value. In order to apply this method, data were firstly encoded as one-hot numeric arrays, then \emph{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty dataset.
+This method turned out to be robust to shuffling.
 \section{PIPELINE IMPLEMENTATION}
 \subsection{Description of the steps you performed}
+\begin{itemize}
+	\item\textbf{Data Exploration:} In this phase histograms of the datasets and heatmaps of the datasets with missing values were plotted.
+	\item\textbf{Imputation:} In this phase imputation was performed.
+		In particular for the advanced imputation, features were encoded as one hot vector using the \emph{get\_dummies()} method from \emph{pandas}
+\end{itemize}
 \newpage
 \section{RESULTS}
-\subsection{Description of the main results obtained}
 
-\subsubsection{Simple Imputation}
+\subsection{Imputation}
+To assess the quality of the imputation, accuracy was computed as the number of rows that were imputed as the original over all the rows.
+
+\subsubsection{Simple Imputation Accuracy}
 
 \begin{table}[h]
 \begin{minipage}{.45\textwidth}\centering
@@ -82,7 +98,7 @@ This method turned out to be pretty robust to shuffling.
 \end{minipage}
 \end{table}
 
-\subsubsection{Advanced Imputation}
+\subsubsection{Advanced Imputation Accuracy}
 \begin{table}[h]
 \begin{minipage}{.45\textwidth}\centering
 \begin{tabular}{ccccc}

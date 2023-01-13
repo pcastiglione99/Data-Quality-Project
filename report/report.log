@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.8)  13 JAN 2023 17:42
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.8)  13 JAN 2023 20:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -276,15 +276,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [2] [3] [4] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 8C51F41F2AD335555FC7F91E58D2961E;2750.
+(rerunfilecheck)             Checksum: 63D0906239643338A7FB85DFFC104012;2519.
  ) 
 Here is how much of TeX's memory you used:
  8488 strings out of 476156
  134890 string characters out of 5814963
- 451358 words of memory out of 5000000
+ 452133 words of memory out of 5000000
  29176 multiletter control sequences out of 15000+600000
  472427 words of font info for 47 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,10n,64p,619b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.xdv (4 pages, 37112 bytes).
+Output written on report.xdv (4 pages, 48148 bytes).
