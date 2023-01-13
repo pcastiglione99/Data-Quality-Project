@@ -42,21 +42,20 @@
 
 
 \section{SETUP CHOICES}
-\subsection{Clustering}
-Clustering was performed used two different methods: K-Modes and K-Means.
-\begin{itemize}
-\item\textbf{K-Modes}
-Because of the categorical nature of the data, \emph{K-Modes} was used. In order to select the number of clusters, \emph{elbow} method analysis was performed.
-\item\textbf{K-Means}
-The second clustering techniques used was K-Means using Jaccard as distance measure.
-\end{itemize}
-\subsection{Chosen ML performance evaluation metrics}
+
 \subsection{Imputation}
 \subsubsection{Simple Imputation}
 Simple imputation was performed by propagating valid values to the cells with missing values using \emph{fillna} method from \emph{Pandas}. Firstly values were propagated forward then, to avoid null values in the first row, values were propagated backward also. This method showed very good result with the original data, but applying it to a shuffle version of the dataset showed worse results.  
 \subsubsection{Advanced Imputation}
 \emph{K-Nearest Neighbors} was used as the advanced technique used to impute missing value. In order to apply this method, data were firstly encoded as one-hot numeric arrays, then \emph{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty dataset.
 This method turned out to be robust to shuffling.
+
+\subsection{Clustering}
+\subsubsection{K-Modes}
+Because of the categorical nature of the data, \emph{K-Modes}\footnote{\url{https://github.com/nicodv/kmodes}} was used. In order to select the best number of clusters, \emph{elbow} method analysis was performed.
+\subsubsection{K-Means}
+The second clustering techniques used was K-Means using Jaccard as distance measure.
+
 \section{PIPELINE IMPLEMENTATION}
 \subsection{Description of the steps you performed}
 \begin{itemize}
