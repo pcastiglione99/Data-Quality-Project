@@ -46,7 +46,7 @@
 \subsection{Imputation}
 
 \subsubsection{Simple Imputation}
-Because of the nature of the dataset, propagating values from valid cells to cells with missing values, seemed to be the best choice. In fact this method showed very good result with the original data, but applying it to a shuffle version of the dataset showed worse results.  
+Because of the nature of the dataset, propagating values from valid cells to cells with missing values, seemed to be the best choice. In fact this method showed very good result with the original data, but applying it to a shuffled version of the dataset showed worse results.  
 
 \subsubsection{Advanced Imputation}
 \emph{K-Nearest Neighbors} was used as the advanced technique to impute missing value as it was able to spot similiarity between tuples and impute value accordingly. Compared to the simple imputation this method proved to be worse with the original dataset but robust to shuffling.
@@ -140,5 +140,5 @@ To assess the quality of the imputation, accuracy was computed as the number of 
 \end{table}
 
 \subsection{Clustering}
-
+To asses the quality of k-means clustering \emph{silhuette score} was computed.
 \end{document}
