@@ -44,24 +44,39 @@
 \section{SETUP CHOICES}
 
 \subsection{Imputation}
+
 \subsubsection{Simple Imputation}
-Simple imputation was performed by propagating valid values to the cells with missing values using \emph{fillna} method from \emph{Pandas}. Firstly values were propagated forward then, to avoid null values in the first row, values were propagated backward also. This method showed very good result with the original data, but applying it to a shuffle version of the dataset showed worse results.  
+Because of the nature of the dataset, propagating values from valid cells to cells with missing values, seemed to be the best choice. In fact this method showed very good result with the original data, but applying it to a shuffle version of the dataset showed worse results.  
+
 \subsubsection{Advanced Imputation}
-\emph{K-Nearest Neighbors} was used as the advanced technique used to impute missing value. In order to apply this method, data were firstly encoded as one-hot numeric arrays, then \emph{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty dataset.
-This method turned out to be robust to shuffling.
+\emph{K-Nearest Neighbors} was used as the advanced technique to impute missing value as it was able to spot similiarity between tuples and impute value accordingly. Compared to the simple imputation this method proved to be worse with the original dataset but robust to shuffling.
 
 \subsection{Clustering}
-\subsubsection{K-Modes}
-Because of the categorical nature of the data, \emph{K-Modes}\footnote{\url{https://github.com/nicodv/kmodes}} was used. In order to select the best number of clusters, \emph{elbow} method analysis was performed.
-\subsubsection{K-Means}
-The second clustering techniques used was K-Means using Jaccard as distance measure.
 
+\subsubsection{K-Modes}
+Because of the categorical nature of the data, \emph{K-Modes}\footnote{\url{https://github.com/nicodv/kmodes}} was the firt choice. In order to select the best number of clusters, \emph{elbow method} analysis was performed.
+
+\subsubsection{K-Means}
+The second clustering techniques used was \emph{K-Means} using Jaccard as distance measure. \emph{Elbow method} analysis was performed to find out the best number of clusters.
+
+\newpage
 \section{PIPELINE IMPLEMENTATION}
+
 \subsection{Description of the steps you performed}
 \begin{itemize}
-	\item\textbf{Data Exploration:} In this phase histograms of the datasets and heatmaps of the datasets with missing values were plotted.
-	\item\textbf{Imputation:} In this phase imputation was performed.
-		In particular for the advanced imputation, features were encoded as one hot vector using the \emph{get\_dummies()} method from \emph{pandas}
+	\item\textbf{Data Load and Dirty Dataset Generation:} First of all the dataset was loaded and, using the provided script, dirty datasets with different completeness levels were generated.
+	\item\textbf{Data Exploration:} In this phase histograms of the datasets and heatmaps of the datasets with missing values were plotted in order to have a general idea of the data and to take decisions accordingly.
+	\item\textbf{Imputation:} In this phase simple and advanced imputations were performed.
+		\begin{itemize}
+			\item\textbf{Simple Imputation:} For all the dirty datasets the method \texttt{fillna} was used. Firstly with the parameter \texttt{method='ffill'} and then with \texttt{method='bfill'} in order impute null values in the first row. After the imputation accuracies were computed.
+			\item\textbf{Advanced Imputation:} First of all data was encoded as one hot arrays using the function \texttt{get\_dummies} from Pandas. Then \texttt{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty datasets. After the imputation, data were encoded back to categorical. At the end accuracies were computed.
+
+		\end{itemize}
+	\item\textbf{Clustering:}
+		\begin{itemize}
+			\item\textbf{K-Modes:} First of all elbow analysis was perfored to choose the number of clusters, after choosing it the model was fitted . In this phase \emph{cluster personas} (the cluster's centroids) were printed and a column with the assigned cluster was added to the dataframe
+			\item\textbf{K-Means:} First of all the distance matrix was computed using Jaccard as distance between tuples. Then the usual elbow plot was plotted in order to choose the best number of clusters. At the end a column with the assigned cluster was added to the dataframe.
+		\end{itemize}
 \end{itemize}
 \newpage
 \section{RESULTS}
@@ -73,57 +88,57 @@ To assess the quality of the imputation, accuracy was computed as the number of 
 
 \begin{table}[h]
 \begin{minipage}{.45\textwidth}\centering
-\begin{tabular}{ccccc}
-              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
-\textbf{50\%} & 0.92        & 0.91        & 0.9         & 1.00        \\
-\textbf{60\%} & 0.92        & 0.93        & 0.93        & 1.00        \\
-\textbf{70\%} & 0.94        & 0.97        & 0.93        & 0.99        \\
-\textbf{80\%} & 0.96        & 0.95        & 0.97        & 1.00        \\
-\textbf{90\%} & 0.97        & 0.99        & 0.99        & 1.00       
+\begin{tabular}{cccccc}
+			  & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} & \textbf{avg} \\
+\textbf{50\%} & 0.92        & 0.91        & 0.9         & 1.00        & 0.93 \\
+\textbf{60\%} & 0.92        & 0.93        & 0.93        & 1.00        & 0.94 \\
+\textbf{70\%} & 0.94        & 0.97        & 0.93        & 0.99        & 0.96 \\
+\textbf{80\%} & 0.96        & 0.95        & 0.97        & 1.00        & 0.97 \\
+\textbf{90\%} & 0.97        & 0.99        & 0.99        & 1.00        & 0.99
 \end{tabular}
 \caption{Simple Imputation}
 \end{minipage}
 \hfill
-\begin{minipage}{.45\textwidth}\centering
-\begin{tabular}{ccccc}
-              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
-\textbf{50\%} & 0.69        & 0.81        & 0.67        & 0.61        \\
-\textbf{60\%} & 0.71        & 0.83        & 0.76        & 0.69        \\
-\textbf{70\%} & 0.83        & 0.90        & 0.81        & 0.78        \\
-\textbf{80\%} & 0.89        & 0.93        & 0.87        & 0.83        \\
-\textbf{90\%} & 0.91        & 0.98        & 0.94        & 0.91       
+\begin{minipage}{.5\textwidth}\centering
+\begin{tabular}{cccccc}
+			  & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} & \textbf{avg} \\
+\textbf{50\%} & 0.69        & 0.81        & 0.67        & 0.61        & 0.71 \\
+\textbf{60\%} & 0.71        & 0.83        & 0.76        & 0.69        & 0.80 \\
+\textbf{70\%} & 0.83        & 0.90        & 0.81        & 0.78        & 0.82 \\
+\textbf{80\%} & 0.89        & 0.93        & 0.87        & 0.83        & 0.88 \\
+\textbf{90\%} & 0.91        & 0.98        & 0.94        & 0.91        & 0.95
 \end{tabular}
-\caption{Simple Imputation Shuffled}
+\caption{Simple Imputation on Shuffled Dataset}
 \end{minipage}
 \end{table}
 
 \subsubsection{Advanced Imputation Accuracy}
 \begin{table}[h]
 \begin{minipage}{.45\textwidth}\centering
-\begin{tabular}{ccccc}
-              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
-\textbf{50\%} & 0.76        & 0.90        & 0.79        & 0.80        \\
-\textbf{60\%} & 0.84        & 0.92        & 0.85        & 0.87        \\
-\textbf{70\%} & 0.88        & 0.96        & 0.92        & 0.91        \\
-\textbf{80\%} & 0.94        & 0.97        & 0.95        & 0.94        \\
-\textbf{90\%} & 0.97        & 1.00        & 0.99        & 0.98       
+\begin{tabular}{cccccc}
+			  & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} & \textbf{avg} \\
+\textbf{50\%} & 0.76        & 0.90        & 0.79        & 0.80        & 0.81 \\
+\textbf{60\%} & 0.84        & 0.92        & 0.85        & 0.87        & 0.87 \\
+\textbf{70\%} & 0.88        & 0.96        & 0.92        & 0.91        & 0.92 \\
+\textbf{80\%} & 0.94        & 0.97        & 0.95        & 0.94        & 0.94 \\
+\textbf{90\%} & 0.97        & 1.00        & 0.99        & 0.98        & 0.98
 \end{tabular}
 \caption{KNN Imputation}
 \end{minipage}
 \hfill
-\begin{minipage}{.45\textwidth}\centering
-\begin{tabular}{ccccc}
-              & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} \\
-\textbf{50\%} & 0.79        & 0.91        & 0.78        & 0.78        \\
-\textbf{60\%} & 0.83        & 0.91        & 0.86        & 0.83        \\
-\textbf{70\%} & 0.88        & 0.94        & 0.91        & 0.91        \\
-\textbf{80\%} & 0.96        & 0.96        & 0.94        & 0.95        \\
-\textbf{90\%} & 0.98        & 0.99        & 0.99        & 1.00       
+\begin{minipage}{.5\textwidth}\centering
+\begin{tabular}{cccccc}
+			  & \textbf{CT} & \textbf{CU} & \textbf{LT} & \textbf{TC} & \textbf{avg} \\
+\textbf{50\%} & 0.79        & 0.91        & 0.78        & 0.78        & 0.81 \\
+\textbf{60\%} & 0.83        & 0.91        & 0.86        & 0.83        & 0.88 \\
+\textbf{70\%} & 0.88        & 0.94        & 0.91        & 0.91        & 0.92 \\
+\textbf{80\%} & 0.96        & 0.96        & 0.94        & 0.95        & 0.94 \\
+\textbf{90\%} & 0.98        & 0.99        & 0.99        & 1.00        & 0.99
 \end{tabular}
-\caption{KNN Imputation Shuffled}
+\caption{KNN Imputation on Shuffled Dataset}
 \end{minipage}
 \end{table}
 
-\subsection{ML performance comparison between the imputation/outlier detection techniques you have implemented}
+\subsection{Clustering}
 
 \end{document}
