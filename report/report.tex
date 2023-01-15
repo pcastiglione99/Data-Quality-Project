@@ -54,30 +54,44 @@ Because of the nature of the dataset, propagating values from valid cells to cel
 \subsection{Clustering}
 
 \subsubsection{K-Modes}
-Because of the categorical nature of the data, \emph{K-Modes}\footnote{\url{https://github.com/nicodv/kmodes}} was the firt choice. In order to select the best number of clusters, \emph{elbow method} analysis was performed.
+Because of the categorical nature of the data, \emph{K-Modes}\footnote{\url{https://github.com/nicodv/kmodes}} was the first choice. In order to select the best number of clusters, \emph{elbow method} analysis was performed.
 
 \subsubsection{K-Means}
-The second clustering techniques used was \emph{K-Means} using Jaccard as distance measure. \emph{Elbow method} analysis was performed to find out the best number of clusters.
+The second clustering techniques used was \emph{K-Means}, applied using Jaccard as distance measure. \emph{Elbow method} analysis was performed to find out the best number of clusters.
 
 \newpage
 \section{PIPELINE IMPLEMENTATION}
 
-\subsection{Description of the steps you performed}
-\begin{itemize}
-	\item\textbf{Data Load and Dirty Dataset Generation:} First of all the dataset was loaded and, using the provided script, dirty datasets with different completeness levels were generated.
-	\item\textbf{Data Exploration:} In this phase histograms of the datasets and heatmaps of the datasets with missing values were plotted in order to have a general idea of the data and to take decisions accordingly.
-	\item\textbf{Imputation:} In this phase simple and advanced imputations were performed.
-		\begin{itemize}
-			\item\textbf{Simple Imputation:} For all the dirty datasets the method \texttt{fillna} was used. Firstly with the parameter \texttt{method='ffill'} and then with \texttt{method='bfill'} in order impute null values in the first row. After the imputation accuracies were computed.
-			\item\textbf{Advanced Imputation:} First of all data was encoded as one hot arrays using the function \texttt{get\_dummies} from Pandas. Then \texttt{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty datasets. After the imputation, data were encoded back to categorical. At the end accuracies were computed.
+	\subsection{Data Load and Dirty Dataset Generation:} First of all the dataset was loaded and, using the provided script, dirty datasets with different completeness levels were generated.
+	\subsection{Data Exploration:} In this phase histograms of the datasets and heatmaps of the datasets with missing values were plotted in order to have a general idea of the data and to take decisions accordingly.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{img/heatmaps.png}
+	\caption{Null Values}
+\end{figure}
 
-		\end{itemize}
-	\item\textbf{Clustering:}
-		\begin{itemize}
-			\item\textbf{K-Modes:} First of all elbow analysis was perfored to choose the number of clusters, after choosing it the model was fitted . In this phase \emph{cluster personas} (the cluster's centroids) were printed and a column with the assigned cluster was added to the dataframe
-			\item\textbf{K-Means:} First of all the distance matrix was computed using Jaccard as distance between tuples. Then the usual elbow plot was plotted in order to choose the best number of clusters. At the end a column with the assigned cluster was added to the dataframe.  To asses the quality of the clustering silhuette score was computed using the function \texttt{silhuette\_score} from sklearn.
-		\end{itemize}
-\end{itemize}
+\subsection{Imputation:} %In this phase simple and advanced imputations were performed.
+
+\subsubsection{Simple Imputation:} For all the dirty datasets the method \texttt{fillna} was used. Firstly with the parameter \texttt{method='ffill'} and then with \texttt{method='bfill'} in order impute null values in the first row. After the imputation accuracies were computed.
+\begin{figure}[h]\centering
+	\includegraphics[scale=0.25]{img/simple.png}
+	\caption{simple imputation}
+\end{figure}
+			
+\subsubsection{Advanced Imputation:} First of all data was encoded as one hot arrays using the function \texttt{get\_dummies} from Pandas. Then \texttt{KNNImputer} from \emph{sklearn} was used to fit and transform the dirty datasets. After the imputation, data were decoded back to categorical. At the end accuracies were computed.
+\begin{figure}[h]\centering
+	\includegraphics[scale=0.2]{img/knn_imputation.png}
+	\caption{advanced imputation}
+\end{figure}
+
+\subsection{Clustering:}
+			
+\subsubsection{K-Modes:} First of all elbow analysis was performed to choose the number of clusters, after choosing it the model was fitted . In this phase \emph{cluster's centroids} were printed and a column with the assigned cluster was added to the dataframe
+\begin{figure}[h]\centering
+	\includegraphics[scale=0.4]{img/elbow.png}
+	\caption{Elbow Method for the original dataset}
+\end{figure}
+			
+\subsubsection{K-Means:} First of all the distance matrix was computed using Jaccard as distance between tuples. Then the usual elbow plot was plotted in order to choose the best number of clusters. At the end a column with the assigned cluster was added to the dataframe.  To asses the quality of the clustering silhuette score was computed using the function \texttt{silhuette\_score} from sklearn.
 \newpage
 \section{RESULTS}
 
@@ -140,6 +154,7 @@ To assess the quality of the imputation, accuracy was computed as the number of 
 \end{table}
 
 \subsection{Clustering}
+\subsubsection{K-Means}
 To asses the quality of k-means clustering \emph{silhuette score} was computed.\\
 \textbf{Original Dataset}: 0.72, 5 clusters
 
