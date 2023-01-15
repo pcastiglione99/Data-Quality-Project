@@ -75,7 +75,7 @@ The second clustering techniques used was \emph{K-Means} using Jaccard as distan
 	\item\textbf{Clustering:}
 		\begin{itemize}
 			\item\textbf{K-Modes:} First of all elbow analysis was perfored to choose the number of clusters, after choosing it the model was fitted . In this phase \emph{cluster personas} (the cluster's centroids) were printed and a column with the assigned cluster was added to the dataframe
-			\item\textbf{K-Means:} First of all the distance matrix was computed using Jaccard as distance between tuples. Then the usual elbow plot was plotted in order to choose the best number of clusters. At the end a column with the assigned cluster was added to the dataframe.
+			\item\textbf{K-Means:} First of all the distance matrix was computed using Jaccard as distance between tuples. Then the usual elbow plot was plotted in order to choose the best number of clusters. At the end a column with the assigned cluster was added to the dataframe.  To asses the quality of the clustering silhuette score was computed using the function \texttt{silhuette\_score} from sklearn.
 		\end{itemize}
 \end{itemize}
 \newpage
@@ -140,5 +140,32 @@ To assess the quality of the imputation, accuracy was computed as the number of 
 \end{table}
 
 \subsection{Clustering}
-To asses the quality of k-means clustering \emph{silhuette score} was computed.
+To asses the quality of k-means clustering \emph{silhuette score} was computed.\\
+\textbf{Original Dataset}: 0.72, 5 clusters
+
+\begin{table}[h]
+\begin{minipage}{0.5\textwidth}\centering
+\begin{tabular}{ccc}
+              & \textbf{score} & \textbf{clusters} \\
+\textbf{50\%} & 0.25                      & 6                           \\
+\textbf{60\%} & 0.31                      & 5                           \\
+\textbf{70\%} & 0.32                      & 6                           \\
+\textbf{80\%} & 0.44                      & 5                           \\
+\textbf{90\%} & 0.58                      & 5                          
+\end{tabular}
+\caption{Silhouette score for simple imputed datasets}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}\centering
+\begin{tabular}{ccc}
+              & \textbf{score} & \textbf{clusters} \\
+\textbf{50\%} & 0.58                      & 6                           \\
+\textbf{60\%} & 0.61                      & 5                           \\
+\textbf{70\%} & 0.64                      & 5                           \\
+\textbf{80\%} & 0.68                      & 5                           \\
+\textbf{90\%} & 0.72                      & 5                          
+\end{tabular}
+\caption{Silhouette score for advanced imputed datasets}
+\end{minipage}
+\end{table}
 \end{document}
