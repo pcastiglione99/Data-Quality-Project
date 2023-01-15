@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1673817793 "report.xdv" "report.pdf" "report" 1673817794
-  "report.xdv" 1673817793 80408 6128e2545894e05669a653fe159a7625 "xelatex"
+["xdvipdfmx"] 1673819603 "report.xdv" "report.pdf" "report" 1673819604
+  "report.xdv" 1673819603 82612 0af5b5e8199c9d63c24b8feea4950234 "xelatex"
   (generated)
   "report.pdf"
-["xelatex"] 1673817793 "report.tex" "report.xdv" "report" 1673817794
+["xelatex"] 1673819603 "report.tex" "report.xdv" "report" 1673819604
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1650183167 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1650183167 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -60,14 +60,17 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1650183167 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1667896490 5825166 a30773552a5369a0a1d52b259804a4bf ""
+  "img/accuracy.png" 1673818549 84699 f9e6d09c41266fa4e99ab0ffc21e3c9d ""
+  "img/centroids.png" 1673818207 20659 7800f2694a57a6aca119b725900b27bf ""
   "img/elbow.png" 1673816146 27877 93ef3859eb96baac1605910f3bcec253 ""
   "img/heatmaps.png" 1673814361 50788 3d67a248e722c179bc7d7b8d7ad3737a ""
+  "img/kmeans.png" 1673819503 69500 8c02e44c0ca69214bc3d4b1ac37095c2 ""
   "img/knn_imputation.png" 1673816905 256554 41c560964091345d8b159b8ab4984ed7 ""
   "img/simple.png" 1673817396 96325 f17052324d1b37e519f137fb08106fb3 ""
-  "report.aux" 1673817793 4786 86b9da6a09aef7c0d8029d051ff1ce28 "xelatex"
-  "report.out" 1673817793 3013 ed1ca354b2da9b9ea48886c86e77f446 "xelatex"
-  "report.tex" 1673817792 8387 b55117adedcbb516b8b8151b0669a032 ""
-  "report.toc" 1673817793 1858 121e8595cb1f4f84015621193bd8862a "xelatex"
+  "report.aux" 1673819603 5204 de6bb4f9bc3dfcc34253783ff1046eb4 "xelatex"
+  "report.out" 1673819603 3013 ed1ca354b2da9b9ea48886c86e77f446 "xelatex"
+  "report.tex" 1673819601 8711 fae066eca399f1623110566a06468d7a ""
+  "report.toc" 1673819603 1858 b270c9496498c464e5ce7e4833939afe "xelatex"
   (generated)
   "report.aux"
   "report.log"

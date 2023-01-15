@@ -485,6 +485,15 @@ INPUT img/knn_imputation.png
 INPUT ./img/elbow.png
 INPUT ./img/elbow.png
 INPUT img/elbow.png
+INPUT ./img/centroids.png
+INPUT ./img/centroids.png
+INPUT img/centroids.png
+INPUT ./img/kmeans.png
+INPUT ./img/kmeans.png
+INPUT img/kmeans.png
+INPUT ./img/accuracy.png
+INPUT ./img/accuracy.png
+INPUT img/accuracy.png
 INPUT report.aux
 INPUT ./report.out
 INPUT ./report.out

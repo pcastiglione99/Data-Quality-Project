@@ -18,5 +18,5 @@
 \contentsline {subsection}{\numberline {3.1}Imputation}{7}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Simple Imputation Accuracy}{7}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Advanced Imputation Accuracy}{7}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Clustering}{7}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}K-Means}{7}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2}Clustering}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}K-Means}{8}{subsubsection.3.2.1}%
